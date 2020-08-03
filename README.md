@@ -2,3 +2,30 @@
 #### microCMS + Next.jsで爆速ブログを作る
 
 仕事でNext.jsで開発をする機会があり、せっかくなので今後のアウトプットもかねて0から作るところからブログを初めてみます
+ロジックはTypeScriptを使います<br>
+あ、yarnを使ってます。
+
+## 大まかな構成
+- Next.js v9.5.1
+- ロジック部分→TypeScript
+- Clean Architecture
+
+Jestによるテストも考えたが、ブログ自体複雑な構成にならない予定なのでコスト面を考えて却下
+
+
+## 環境構築
+まずは環境開発からマニュアルでやっても良かったのですが、手間もコストもかかるので [公式リファレンス](https://nextjs.org/docs/getting-started) を参照しながらcreateしました
+~~~Linux Kernel Module
+yarn create next-app
+~~~
+## TypeScript導入
+これもまた [公式リファレンス](https://nextjs.org/docs/basic-features/typescript) を見ながらやりました
+### tsconfig.jsonを作成
+~~~Linux Kernel Module
+touch tsconfig.json
+~~~
+### いろいろインストール
+~~~
+yarn add --dev typescript @types/react @types/node
+~~~
+その後、サーバーを起動
