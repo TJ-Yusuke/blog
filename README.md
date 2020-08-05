@@ -19,14 +19,18 @@ Jestによるテストも考えたが、ブログ自体複雑な構成になら�
 ~~~Linux Kernel Module
 yarn create next-app
 ~~~
-## TypeScript導入
+### TypeScript導入
 これもまた [公式リファレンス](https://nextjs.org/docs/basic-features/typescript) を見ながらやりました
-### tsconfig.jsonを作成
+#### tsconfig.jsonを作成
 ~~~Linux Kernel Module
 touch tsconfig.json
 ~~~
-### いろいろインストール
+#### いろいろインストール
 ~~~
 yarn add --dev typescript @types/react @types/node
 ~~~
 その後、サーバーを起動
+
+### eslint, prettierなど導入
+[typescriptの整形](https://qiita.com/y-w/items/dcf5fb4af52e990109eb#typescript%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEeslint%E3%81%A8prettier%E3%81%AE%E4%BD%B5%E7%94%A8%E8%A8%AD%E5%AE%9A) ができる様にした。
+

@@ -12,8 +12,10 @@
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "rules": {
+    "no-console": "error",
     "prettier/prettier": [
       "error",
       {
@@ -21,5 +23,11 @@
         "trailingComma": "es5"
       }
     ]
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
