@@ -7,11 +7,13 @@
 バックエンドはわからないのでとりあえず今回はバックエンドはheadlessCMSに任せちゃいたいと思います。今後バックエンドも勉強して行けたらなと考えてます。
 
 ## 大まかな構成
+- バックはHeadlessCMS(microCMS)
 - Next.js v9.5.1
 - ロジック部分→TypeScript
-- Clean Architecture
+#### アーキテクチャ
+アーキテクチャはデータをとってきて表示させるだけなのでなんでもいいが、今回は最近勉強したCleanArchitectureを導入してみようと思う。
 
-Jestによるテストも考えたが、ブログ自体複雑な構成にならない予定なのでコスト面を考えて却下
+Jestによるテストも練習がてらやってみる
 
 
 ## 環境構築
@@ -32,5 +34,6 @@ yarn add --dev typescript @types/react @types/node
 その後、サーバーを起動
 
 ### eslint, prettierなど導入
-[typescriptの整形](https://qiita.com/y-w/items/dcf5fb4af52e990109eb#typescript%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEeslint%E3%81%A8prettier%E3%81%AE%E4%BD%B5%E7%94%A8%E8%A8%AD%E5%AE%9A) ができる様にした。
+いろいろやって[typescriptの整形](https://qiita.com/y-w/items/dcf5fb4af52e990109eb#typescript%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEeslint%E3%81%A8prettier%E3%81%AE%E4%BD%B5%E7%94%A8%E8%A8%AD%E5%AE%9A) ができる様にした。(省略)
 
+### tailwind導入
