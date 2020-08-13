@@ -36,4 +36,5 @@ yarn add --dev typescript @types/react @types/node
 ### eslint, prettierなど導入
 いろいろやって[typescriptの整形](https://qiita.com/y-w/items/dcf5fb4af52e990109eb#typescript%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEeslint%E3%81%A8prettier%E3%81%AE%E4%BD%B5%E7%94%A8%E8%A8%AD%E5%AE%9A) ができる様にした。(省略)
 
-### tailwind導入
+### tailwindとstyled-components導入
+これもいろいろググって導入しました。
