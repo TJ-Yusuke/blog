@@ -38,3 +38,27 @@ yarn add --dev typescript @types/react @types/node
 
 ### tailwindとstyled-components導入
 これもいろいろググって導入しました。
+
+## View部分の設計
+アトミックデザインを取り入れたコンポーネント設計にしました。
+```
+blog/
+┣ components/
+┃   ┝ atoms
+┃    ┃    └ texts
+┃    ┃        ┝ h1.tsx
+┃    ┃        ┝ h2.tsx
+┃    ┃        └ text.tsx
+┃    ┝ molecules
+┃    ┃    └cards
+┃    ┃        ┝ articleCard.tsx
+┃    ┃        └ profileCard.tsx
+┃    ┃
+┃    └organisms
+┃        ┝ articles.tsx
+┃        ┝ footer.tsx
+┃        └ header.tsx
+┣ pages
+...
+```
+はじめにこんな感じで整理するために骨組みだけ作ります。開発していくうちに変更などするので最終的な物を知りたければgitのソースをご覧ください。
