@@ -1,11 +1,13 @@
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { ArticlePresenterInstance } from '../components/utility/instance/logic';
 import HttpStatusCode from '../logic/interface/useCase/utility/response';
 import { Article } from '../logic/domain/entity/article';
 
-const Index = ({ articles }) => {
-  console.log(ArticlePresenterInstance.fetchArticles());
+const Index = ({ articlesJson }) => {
+  const articlesData = JSON.parse(articlesJson);
+  const articles = articlesData.body.data;
   return (
     <div>
       <Head>
@@ -17,7 +19,7 @@ const Index = ({ articles }) => {
         <h1 className="text-green-400 text-5xl">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
+        <div dangerouslySetInnerHTML={{ __html: articles[1].body }} />
         <p>
           Get started by editing <code>pages/index.js</code>
         </p>
@@ -60,28 +62,16 @@ const Index = ({ articles }) => {
   );
 };
 export default Index;
-
-// export const getStaticProps = async () => {
-//   const articles = await ArticlePresenterInstance.fetchArticles()
-//     .then((response) => {
-//       if (response.statusCode === HttpStatusCode.OK) {
-//         const body = response.body;
-//         let data = [];
-//         body.data.map((article) => {
-//           data.push(article);
-//         });
-//         return data;
-//       } else if (response.statusCode !== HttpStatusCode.NO_CONTENT) {
-//         throw new Error('cannot get pickups');
-//       }
-//     })
-//     .catch((error) => {
-//       throw error;
-//     });
-//
-//   return {
-//     props: {
-//       articles,
-//     },
-//   };
-// };
+export const getStaticProps = async () => {
+  const articles = await ArticlePresenterInstance.fetchArticles().catch(
+    (error) => {
+      throw error;
+    }
+  );
+  const articlesJson = JSON.stringify(articles);
+  return {
+    props: {
+      articlesJson,
+    },
+  };
+};
