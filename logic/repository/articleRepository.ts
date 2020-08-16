@@ -20,7 +20,7 @@ export default class ArticleRepository implements ArticleRepositoryInterface {
     return await this.driver
       .fetchArticles()
       .then((response) => {
-        const data = response.data.map((article) => {
+        const data = response.data.contents.map((article) => {
           return createArticle(article);
         });
         const articles = {
