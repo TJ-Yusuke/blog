@@ -51,10 +51,6 @@ export default class ArticleDriver implements ArticleDriverInterface {
    * @return Promise<any>: 記事一覧取得結果
    */
   async fetchArticles(): Promise<any> {
-    return await axios
-      .get(ArticleDriver.getEndpoint(Endpoint.fetchArticles))
-      .then((response) => {
-        console.log(response);
-      });
+    return await axios.get(ArticleDriver.getEndpoint(Endpoint.fetchArticles));
   }
 }
