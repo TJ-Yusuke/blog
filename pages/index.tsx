@@ -25,7 +25,7 @@ const Index = ({ articlesJson }) => {
   );
 };
 export default Index;
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const articles = await ArticlePresenterInstance.fetchArticles().catch(
     (error) => {
       throw error;
