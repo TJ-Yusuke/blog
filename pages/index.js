@@ -1,6 +1,11 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import { ArticlePresenterInstance } from '../components/utility/instance/logic';
+import HttpStatusCode from '../logic/interface/useCase/utility/response';
+import { Article } from '../logic/domain/entity/article';
 
-export default function Home() {
+const Index = ({ articles }) => {
+  console.log(ArticlePresenterInstance.fetchArticles());
   return (
     <div>
       <Head>
@@ -53,4 +58,30 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+export default Index;
+
+// export const getStaticProps = async () => {
+//   const articles = await ArticlePresenterInstance.fetchArticles()
+//     .then((response) => {
+//       if (response.statusCode === HttpStatusCode.OK) {
+//         const body = response.body;
+//         let data = [];
+//         body.data.map((article) => {
+//           data.push(article);
+//         });
+//         return data;
+//       } else if (response.statusCode !== HttpStatusCode.NO_CONTENT) {
+//         throw new Error('cannot get pickups');
+//       }
+//     })
+//     .catch((error) => {
+//       throw error;
+//     });
+//
+//   return {
+//     props: {
+//       articles,
+//     },
+//   };
+// };
