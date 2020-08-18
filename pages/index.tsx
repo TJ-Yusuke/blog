@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { ArticlePresenterInstance } from '../components/utility/instance/logic';
-import HttpStatusCode from '../logic/interface/useCase/utility/response';
-import { Article } from '../logic/domain/entity/article';
 
 const Index = ({ articlesJson }) => {
-  const articlesData = JSON.parse(articlesJson);
-  const articles = articlesData.body.data;
+  const articles = JSON.parse(articlesJson);
   return (
     <div>
       <Head>
@@ -19,7 +16,7 @@ const Index = ({ articlesJson }) => {
         <h1 className="text-green-400 text-5xl">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <div dangerouslySetInnerHTML={{ __html: articles[1].body }} />
+        <div dangerouslySetInnerHTML={{ __html: articles[1].title }} />
       </main>
     </div>
   );
@@ -31,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
       throw error;
     }
   );
-  const articlesJson = JSON.stringify(articles);
+  const articlesJson = JSON.stringify(articles.body.data);
   return {
     props: {
       articlesJson,
