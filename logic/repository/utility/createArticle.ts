@@ -9,7 +9,11 @@ import { Body } from '../../domain/entity/types/body';
 export const createArticle = (data: any): Article => {
   const id: string = data.id;
   const title: string = data.title;
-  const category = new Category(data.id, data.categorySlug, data.categoryName);
+  const category = new Category(
+    data.category[0].id,
+    data.category[0].categorySlug,
+    data.category[0].categoryName
+  );
   const thumbnail = data.thumbnail ? data.thumbnail : null;
   const body: Body = data.body;
   const updatedAt = new Date(data.updatedAt);

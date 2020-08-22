@@ -5,6 +5,7 @@ import { ArticlePresenterInstance } from '../components/utility/instance/logic';
 
 const Index = ({ articlesJson }) => {
   const articles = JSON.parse(articlesJson);
+  console.log(articles);
   return (
     <div>
       <Head>
@@ -16,7 +17,7 @@ const Index = ({ articlesJson }) => {
         <h1 className="text-green-400 text-5xl">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <div dangerouslySetInnerHTML={{ __html: articles[1].title }} />
+        {/*<div dangerouslySetInnerHTML={{ __html: articles[1].title }} />*/}
       </main>
     </div>
   );

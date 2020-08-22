@@ -6,7 +6,17 @@ import {
 import HttpStatusCode, {
   Response,
 } from '../interface/useCase/utility/response';
-import { Article } from '../domain/entity/article';
+import { Article, Category } from '../domain/entity/article';
+import { Url } from '../domain/entity/types/url';
+
+type ArticleViewModel = {
+  id: string;
+  title: string;
+  category: Category;
+  thumbnail: Url | null;
+  body: string;
+  updatedAt: Date;
+};
 
 export default class ArticlePresenter implements ArticlePresenterInterface {
   private readonly useCase: ArticleUseCaseInterface;
@@ -20,11 +30,15 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @param data: articleEntityインスタンス
    * @return Article: 記事内容
    */
-  static createArticleViewModel(data: Article): Article {
+  static createArticleViewModel(data: Article): ArticleViewModel {
     return {
       id: data.id,
       title: data.title,
-      category: data.category,
+      category: {
+        id: data.category.id,
+        slug: data.category.slug,
+        name: data.category.name,
+      },
       thumbnail: data.thumbnail,
       body: data.body,
       updatedAt: data.updatedAt,
@@ -57,6 +71,10 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
       });
   }
 
+  /**
+   * 記事一覧取得
+   * @return Promise<Response<Articles>>: 記事一覧取得結果
+   */
   async fetchArticles(): Promise<Response<Articles>> {
     return await this.useCase
       .fetchArticles()
@@ -65,8 +83,8 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
           return {
             statusCode: response.statusCode,
             body: {
-              data: response.body!.data.map(
-                ArticlePresenter.createArticleViewModel
+              data: response.body!.data.map((article) =>
+                ArticlePresenter.createArticleViewModel(article)
               ),
             },
           };
