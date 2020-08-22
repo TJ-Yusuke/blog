@@ -17,7 +17,6 @@ const Index = ({ articlesJson }) => {
         <h1 className="text-green-400 text-5xl">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        {/*<div dangerouslySetInnerHTML={{ __html: articles[1].title }} />*/}
       </main>
     </div>
   );

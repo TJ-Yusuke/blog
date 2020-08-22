@@ -39,6 +39,20 @@ yarn add --dev typescript @types/react @types/node
 ### tailwindとstyled-components導入
 これもいろいろググって導入しました。
 
+## logic周り
+勉強仕立てのcleanArchitectureを導入してみたのですが、間違いがあるかもしれないのであまり参考にはしない方がいいです。
+それでも見たい方はソースコードをご覧ください。
+<br>流れは, domain層があり、<br>
+CMS(データベース)→driver→repository→useCase→presenter→Viewはき出し
+
+## view周り
+microCMSのリッチエディタで入力した物はHTMLの文字列で返ってきてしまうので、<br>
+
+`<div dangerouslySetInnerHTML={{ __html: hogehogehogehoge }}`<br>
+
+に無理やり突っ込んでDOMを作成した。※この方法は非推奨であまりやりたくなかったのですが、これ以外の方法が見当たらなかったので泣く泣くこれにしました。他に知っている方法があれば教えてください。（涙）
+
+
 ## View部分の設計
 アトミックデザインを取り入れたコンポーネント設計にしました。
 ```
@@ -62,17 +76,4 @@ blog/
 ...
 ```
 はじめにこんな感じで整理するために骨組みだけ作ります。開発していくうちに変更などするので最終的な物を知りたければgitのソースをご覧ください。
-
-## logic周り
-勉強仕立てのcleanArchitectureを導入してみたのですが、間違いがあるかもしれないのであまり参考にはしない方がいいです。
-それでも見たい方はソースコードをご覧ください。
-<br>流れは,<br>
-CMS(データベース)→driver→repository→useCase→presenter→Viewはき出し
-
-## view周り
-microCMSのリッチエディタで入力した物はHTMLの文字列で返ってきてしまうので、<br>
-
-`<div dangerouslySetInnerHTML={{ __html: hogehogehogehoge }}`<br>
-
-に無理やり突っ込んでDOMを作成した。※この方法は非推奨であまりやりたくなかったのですが、これ以外の方法が見当たらなかったので泣く泣くこれにしました。他に知っている方法があれば教えてください。（涙）
-
+デザインはtailwind componentsを参考にしました。
