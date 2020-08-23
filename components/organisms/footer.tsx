@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const StickyFooter: React.FC = () => {
+export const StickyFooter: React.FC<{}> = () => {
   return (
     <div className="bg-white absolute bottom-0 w-full border-t border-gray-200 flex">
       <a
