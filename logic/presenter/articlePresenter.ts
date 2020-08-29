@@ -50,7 +50,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @param articleId: 記事ID
    * @return Promise<Response<Article>>: 記事詳細情報取得結果
    */
-  async fetchDetail(articleId: string): Promise<Response<Article>> {
+  async fetchDetail(articleId): Promise<Response<Article>> {
     return await this.useCase
       .fetchDetail(articleId)
       .then((response) => {

@@ -19,7 +19,7 @@ export default class ArticleDriver implements ArticleDriverInterface {
     let url: string = '';
     switch (endpoint) {
       case Endpoint.fetchDetail:
-        url = `/articles${id}`;
+        url = `/articles/${id}`;
         break;
       case Endpoint.fetchArticles:
         url = '/articles';
