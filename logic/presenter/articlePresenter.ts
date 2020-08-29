@@ -31,6 +31,16 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @return Article: 記事内容
    */
   static createArticleViewModel(data: Article): ArticleViewModel {
+    let plainBody = data.body;
+    plainBody = plainBody.replace(/<style([\s\S]*?)<\/style>/gi, '');
+    plainBody = plainBody.replace(/<script([\s\S]*?)<\/script>/gi, '');
+    plainBody = plainBody.replace(/<\/div>/gi, '\n');
+    plainBody = plainBody.replace(/<\/li>/gi, '\n');
+    plainBody = plainBody.replace(/<li>/gi, '  *  ');
+    plainBody = plainBody.replace(/<\/ul>/gi, '\n');
+    plainBody = plainBody.replace(/<\/p>/gi, '\n');
+    plainBody = plainBody.replace(/<br\s*[\/]?>/gi, '\n');
+    plainBody = plainBody.replace(/<[^>]+>/gi, '');
     return {
       id: data.id,
       title: data.title,
@@ -40,7 +50,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
         name: data.category.name,
       },
       thumbnail: data.thumbnail,
-      body: data.body,
+      body: plainBody,
       updatedAt: data.updatedAt,
     };
   }
