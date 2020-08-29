@@ -17,9 +17,6 @@ export class Article {
     body: Body,
     updateAt: Date
   ) {
-    if (thumbnail === null) {
-      thumbnail = 'noImageのリンク';
-    }
     this.id = id;
     this.title = title;
     this.category = category;
