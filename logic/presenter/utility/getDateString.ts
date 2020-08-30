@@ -4,5 +4,5 @@
  * @string: 日付文字列
  */
 export const getDateString = (date: Date): string => {
-  return `${date.getFullYear()} - ${date.getMonth() + 1} - ${date.getDate()}`;
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
