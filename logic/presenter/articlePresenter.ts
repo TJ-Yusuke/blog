@@ -1,22 +1,14 @@
-import ArticlePresenterInterface from '../interface/presenter/articlePresenterInterface';
-import {
-  Articles,
-  ArticleUseCaseInterface,
-} from '../interface/useCase/articleUseCaseInterface';
+import ArticlePresenterInterface, {
+  ArticlesViewModel,
+  ArticleViewModel,
+} from '../interface/presenter/articlePresenterInterface';
+import { ArticleUseCaseInterface } from '../interface/useCase/articleUseCaseInterface';
 import HttpStatusCode, {
   Response,
 } from '../interface/useCase/utility/response';
-import { Article, Category } from '../domain/entity/article';
-import { Url } from '../domain/entity/types/url';
-
-type ArticleViewModel = {
-  id: string;
-  title: string;
-  category: Category;
-  thumbnail: Url | null;
-  body: string;
-  updatedAt: Date;
-};
+import { Article } from '../domain/entity/article';
+import { getPlainText } from './utility/getPlainText';
+import { getDateString } from './utility/getDateString';
 
 export default class ArticlePresenter implements ArticlePresenterInterface {
   private readonly useCase: ArticleUseCaseInterface;
@@ -31,16 +23,8 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @return Article: 記事内容
    */
   static createArticleViewModel(data: Article): ArticleViewModel {
-    let plainBody = data.body;
-    plainBody = plainBody.replace(/<style([\s\S]*?)<\/style>/gi, '');
-    plainBody = plainBody.replace(/<script([\s\S]*?)<\/script>/gi, '');
-    plainBody = plainBody.replace(/<\/div>/gi, '\n');
-    plainBody = plainBody.replace(/<\/li>/gi, '\n');
-    plainBody = plainBody.replace(/<li>/gi, '  *  ');
-    plainBody = plainBody.replace(/<\/ul>/gi, '\n');
-    plainBody = plainBody.replace(/<\/p>/gi, '\n');
-    plainBody = plainBody.replace(/<br\s*[\/]?>/gi, '\n');
-    plainBody = plainBody.replace(/<[^>]+>/gi, '');
+    const plainBody = getPlainText(data.body);
+    const updatedAtString = getDateString(data.updatedAt);
     return {
       id: data.id,
       title: data.title,
@@ -51,26 +35,26 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
       },
       thumbnail: data.thumbnail,
       body: plainBody,
-      updatedAt: data.updatedAt,
+      updatedAt: updatedAtString,
     };
   }
 
   /**
    * 記事詳細取得
    * @param articleId: 記事ID
-   * @return Promise<Response<Article>>: 記事詳細情報取得結果
+   * @return Promise<Response<ArticleViewModel>>: 記事詳細情報取得結果
    */
-  async fetchDetail(articleId): Promise<Response<Article>> {
+  async fetchDetail(articleId): Promise<Response<ArticleViewModel>> {
     return await this.useCase
       .fetchDetail(articleId)
       .then((response) => {
         if (response.statusCode == HttpStatusCode.OK) {
           return {
             statusCode: response.statusCode,
-            body: response.body,
+            body: ArticlePresenter.createArticleViewModel(response.body),
           };
         } else {
-          return (response as unknown) as Response<Article>;
+          return (response as unknown) as Response<ArticleViewModel>;
         }
       })
       .catch((error) => {
@@ -85,7 +69,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * 記事一覧取得
    * @return Promise<Response<Articles>>: 記事一覧取得結果
    */
-  async fetchArticles(): Promise<Response<Articles>> {
+  async fetchArticles(): Promise<Response<ArticlesViewModel>> {
     return await this.useCase
       .fetchArticles()
       .then((response) => {
@@ -99,7 +83,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
             },
           };
         } else {
-          return (response as unknown) as Response<Articles>;
+          return (response as unknown) as Response<ArticlesViewModel>;
         }
       })
       .catch((error) => {
