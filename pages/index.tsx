@@ -7,9 +7,6 @@ import Link from 'next/link';
 const Index = ({ articlesJson }) => {
   const articles = JSON.parse(articlesJson);
   const mainArticle = articles[0];
-  const unLatest = articles.slice(1);
-  console.log(articles);
-  console.log(unLatest);
   //最新記事以外の記事
   const SubArticle: React.FC<{}> = () =>
     articles.slice(1).map((article, i) => {
@@ -303,5 +300,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       articlesJson,
     },
+    revalidate: 10,
   };
 };
