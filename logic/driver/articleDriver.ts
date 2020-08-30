@@ -22,7 +22,7 @@ export default class ArticleDriver implements ArticleDriverInterface {
         url = `/articles/${id}`;
         break;
       case Endpoint.fetchArticles:
-        url = '/articles';
+        url = '/articles?limit=8';
         break;
       case Endpoint.category:
         url = `/categories/${id}`;
