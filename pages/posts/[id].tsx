@@ -1,10 +1,25 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ArticlePresenterInstance } from '../../components/utility/instance/logic';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import DefaultErrorPage from 'next/error';
 
-export const Post = ({ postDataJson }) => {
-  const postData = JSON.parse(postDataJson);
-  console.log(postData);
+export const Post = ({ postData }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <h1>Loading...ロード中です。</h1>;
+  }
+  if (!postData) {
+    return (
+      <>
+        <Head>
+          <meta name={'robots'} content={'noindex'} />
+        </Head>
+        <DefaultErrorPage statusCode={404} />
+      </>
+    );
+  }
   return <></>;
 };
 
@@ -36,10 +51,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await ArticlePresenterInstance.fetchDetail(params.id);
-  const postDataJson = await JSON.stringify(postData);
   return {
     props: {
-      postDataJson,
+      postData,
     },
   };
 };
