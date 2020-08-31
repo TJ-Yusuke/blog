@@ -23,7 +23,6 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @return Article: 記事内容
    */
   static createArticleViewModel(data: Article): ArticleViewModel {
-    const plainBody = getPlainText(data.body);
     const updatedAtString = getDateString(data.updatedAt);
     return {
       id: data.id,
@@ -34,7 +33,23 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
         name: data.category.name,
       },
       thumbnail: data.thumbnail,
-      body: plainBody,
+      body: data.body,
+      updatedAt: updatedAtString,
+    };
+  }
+  static createIndexArticleViewModel(data: Article): ArticleViewModel {
+    const updatedAtString = getDateString(data.updatedAt);
+    const plainText = getPlainText(data.body);
+    return {
+      id: data.id,
+      title: data.title,
+      category: {
+        id: data.category.id,
+        slug: data.category.slug,
+        name: data.category.name,
+      },
+      thumbnail: data.thumbnail,
+      body: plainText,
       updatedAt: updatedAtString,
     };
   }
@@ -78,7 +93,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
             statusCode: response.statusCode,
             body: {
               data: response.body!.data.map((article) =>
-                ArticlePresenter.createArticleViewModel(article)
+                ArticlePresenter.createIndexArticleViewModel(article)
               ),
             },
           };
