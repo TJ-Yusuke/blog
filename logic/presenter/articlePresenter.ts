@@ -9,6 +9,7 @@ import HttpStatusCode, {
 import { Article } from '../domain/entity/article';
 import { getPlainText } from './utility/getPlainText';
 import { getDateString } from './utility/getDateString';
+import { getOmission } from './utility/getOmission';
 
 export default class ArticlePresenter implements ArticlePresenterInterface {
   private readonly useCase: ArticleUseCaseInterface;
@@ -40,6 +41,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
   static createIndexArticleViewModel(data: Article): ArticleViewModel {
     const updatedAtString = getDateString(data.updatedAt);
     const plainText = getPlainText(data.body);
+    const omittedText = getOmission(plainText, 90);
     return {
       id: data.id,
       title: data.title,
@@ -49,7 +51,7 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
         name: data.category.name,
       },
       thumbnail: data.thumbnail,
-      body: plainText,
+      body: omittedText,
       updatedAt: updatedAtString,
     };
   }
