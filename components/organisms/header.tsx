@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 export const Header: React.FC<{}> = () => {
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const spMenu = (
+    <div
+      className="w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 md:bg-transparent z-20 bg-white"
+      id="nav-content"
+    >
+      <ul className="list-reset lg:flex justify-end flex-1 items-center">
+        <li className="mr-3">
+          <Link href="/">
+            <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+              TOP
+            </a>
+          </Link>
+        </li>
+        <li className="mr-3">
+          <Link href="/archive">
+            <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+              Archive
+            </a>
+          </Link>
+        </li>
+        <li className="mr-3">
+          <Link href="/category">
+            <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+              Category
+            </a>
+          </Link>
+        </li>
+        <li className="mr-3">
+          <Link href="/profile">
+            <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+              PROFILE
+            </a>
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
   return (
     <header className="sticky top-0">
       <nav id="header" className="fixed w-full z-10 top-0 bg-white">
@@ -27,6 +65,9 @@ export const Header: React.FC<{}> = () => {
             <button
               id="nav-toggle"
               className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none"
+              onClick={() =>
+                menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true)
+              }
             >
               <svg
                 className="fill-current h-3 w-3"
@@ -38,7 +79,7 @@ export const Header: React.FC<{}> = () => {
               </svg>
             </button>
           </div>
-
+          {menuIsOpen ? spMenu : ''}
           <div
             className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20"
             id="nav-content"

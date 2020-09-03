@@ -58,8 +58,10 @@ export const Post = ({ Content }) => {
             alt="Avatar of Author"
           />
           <div className="flex-1 px-2">
-            <p className="text-base font-bold text-base md:text-xl leading-none mb-2">
-              たがわ ゆうすけ
+            <p className="md:text-xl text-sm font-bold leading-none mb-2">
+              <span className="inline-block">たがわ</span>
+              <span> </span>
+              <span className="inline-block">ゆうすけ</span>
             </p>
             <p className="text-gray-600 text-xs md:text-base">
               web開発やアプリ開発、wordpress構築などやってます
