@@ -94,36 +94,32 @@ const Index = ({ articlesJson }) => {
                 <div className="flex w-1/2 pl-4 text-sm">
                   <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
                     <li className="mr-2">
-                      <a
-                        className="inline-block py-2 px-2 text-white no-underline hover:underline"
-                        href="post.html"
-                      >
-                        TOP
-                      </a>
+                      <Link href="/">
+                        <a className="inline-block py-2 px-2 text-white no-underline hover:underline">
+                          TOP
+                        </a>
+                      </Link>
                     </li>
                     <li className="mr-2">
-                      <a
-                        className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2"
-                        href="#"
-                      >
-                        Archive
-                      </a>
+                      <Link href="/archive">
+                        <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2">
+                          Archive
+                        </a>
+                      </Link>
                     </li>
                     <li className="mr-2">
-                      <a
-                        className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2"
-                        href="#"
-                      >
-                        Category
-                      </a>
+                      <Link href="/category">
+                        <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2">
+                          Category
+                        </a>
+                      </Link>
                     </li>
                     <li className="mr-2">
-                      <a
-                        className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2"
-                        href="#"
-                      >
-                        PROFILE
-                      </a>
+                      <Link href="/profile">
+                        <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-2">
+                          PROFILE
+                        </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -159,8 +155,6 @@ const Index = ({ articlesJson }) => {
                           className="text-gray-800 font-gothic text-base px-6 mb-5"
                           dangerouslySetInnerHTML={{ __html: mainArticle.body }}
                         />
-                        {/*{mainArticle.body}*/}
-                        {/*</p>*/}
                       </div>
                       <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
                         <div className="flex items-center justify-between">
@@ -199,7 +193,9 @@ const Index = ({ articlesJson }) => {
               </div>
               <div className="justify-end">
                 <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
-                  プロフィールを見る
+                  <Link href="/profile">
+                    <a>プロフィールを見る</a>
+                  </Link>
                 </button>
               </div>
             </div>
@@ -222,36 +218,32 @@ const Index = ({ articlesJson }) => {
               <div className="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
                 <ul className="list-reset flex justify-center flex-1 md:flex-none items-center">
                   <li>
-                    <a
-                      className="inline-block py-2 px-3 text-white no-underline"
-                      href="#"
-                    >
-                      TOP
-                    </a>
+                    <Link href="/">
+                      <a className="inline-block py-2 px-3 text-white no-underline">
+                        TOP
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3"
-                      href="#"
-                    >
-                      Archive
-                    </a>
+                    <Link href="/archive">
+                      <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3">
+                        Archive
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3"
-                      href="#"
-                    >
-                      Category
-                    </a>
+                    <Link href="/category">
+                      <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3">
+                        Category
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3"
-                      href="#"
-                    >
-                      PROFILE
-                    </a>
+                    <Link href="/profile">
+                      <a className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-3">
+                        PROFILE
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
