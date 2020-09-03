@@ -1,9 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 
 export const Header: React.FC<{}> = () => {
   return (
-    <header>
-      <nav id="header" className="fixed w-full z-10 top-0">
+    <header className="sticky top-0">
+      <nav id="header" className="fixed w-full z-10 top-0 bg-white">
         <div
           id="progress"
           className="h-1 z-20 top-0"
@@ -15,12 +16,11 @@ export const Header: React.FC<{}> = () => {
 
         <div className="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
           <div className="pl-4">
-            <a
-              className="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl"
-              href="#"
-            >
-              ゆうすけオフィシャルブログ
-            </a>
+            <Link href="/">
+              <a className="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
+                ゆうすけオフィシャルブログ
+              </a>
+            </Link>
           </div>
 
           <div className="block lg:hidden pr-4">
@@ -45,28 +45,32 @@ export const Header: React.FC<{}> = () => {
           >
             <ul className="list-reset lg:flex justify-end flex-1 items-center">
               <li className="mr-3">
-                <a
-                  className="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
-                  href="#"
-                >
-                  Active
-                </a>
+                <Link href="/">
+                  <a className="inline-block py-2 px-4 text-gray-900 font-bold no-underline">
+                    TOP
+                  </a>
+                </Link>
               </li>
               <li className="mr-3">
-                <a
-                  className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
-                  href="#"
-                >
-                  link
-                </a>
+                <Link href="/archive">
+                  <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+                    Archive
+                  </a>
+                </Link>
               </li>
               <li className="mr-3">
-                <a
-                  className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
-                  href="#"
-                >
-                  link
-                </a>
+                <Link href="/category">
+                  <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+                    Category
+                  </a>
+                </Link>
+              </li>
+              <li className="mr-3">
+                <Link href="/profile">
+                  <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
+                    PROFILE
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
