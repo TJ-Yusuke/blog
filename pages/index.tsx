@@ -72,7 +72,8 @@ const Index = ({ articlesJson }) => {
         <div
           className="w-full m-0 p-0 bg-cover bg-bottom"
           style={{
-            backgroundImage: `url('cover.jpg')`,
+            backgroundImage: `url('hero.jpg')`,
+            backgroundPosition: 'center',
             height: '60vh',
             maxHeight: 460,
           }}
