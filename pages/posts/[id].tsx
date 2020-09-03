@@ -136,7 +136,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
   const paths = await getAllPostIds();
   return {
-    paths,
+    paths: paths,
     fallback: true,
   };
 };
