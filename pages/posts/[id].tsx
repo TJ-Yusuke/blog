@@ -4,13 +4,16 @@ import { ArticlePresenterInstance } from '../../components/utility/instance/logi
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import DefaultErrorPage from 'next/error';
+import { Header } from '../../components/organisms/header';
+import Link from 'next/link';
 
-export const Post = ({ postData }) => {
+export const Post = ({ Content }) => {
+  console.log(Content);
   const router = useRouter();
   if (router.isFallback) {
     return <h1>Loading...ロード中です。</h1>;
   }
-  if (!postData) {
+  if (!Content) {
     return (
       <>
         <Head>
@@ -20,7 +23,94 @@ export const Post = ({ postData }) => {
       </>
     );
   }
-  return <></>;
+  return (
+    <body className="bg-gray-100 font-gothic leading-normal tracking-normal">
+      <Header />
+      <div className="container w-full md:max-w-3xl mx-auto pt-20">
+        <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
+          <span className="text-base md:text-sm text-teal-500 font-bold">
+            &lt;
+          </span>
+          <Link href="/">
+            <a className="text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">
+              BACK TO BLOG
+            </a>
+          </Link>
+          <div className="text-base md:text-sm text-gray-600 font-bold pt-6 no-underline hover:underline">
+            {Content.category.name}
+          </div>
+
+          <h1 className="font-bold font-gothic break-normal text-gray-900 pb-2 text-3xl md:text-4xl">
+            {Content.title}
+          </h1>
+          <p className="text-sm md:text-base font-normal text-gray-600">
+            最終更新日: {Content.updatedAt}
+          </p>
+        </div>
+        <div
+          className="py-6 px-4 md:px-6"
+          dangerouslySetInnerHTML={{ __html: Content.body }}
+        />
+        <div className="flex w-full items-center font-gothic px-4 py-12">
+          <img
+            className="w-10 h-10 rounded-full mr-4"
+            src="http://i.pravatar.cc/300"
+            alt="Avatar of Author"
+          />
+          <div className="flex-1 px-2">
+            <p className="text-base font-bold text-base md:text-xl leading-none mb-2">
+              たがわ ゆうすけ
+            </p>
+            <p className="text-gray-600 text-xs md:text-base">
+              web開発やアプリ開発、wordpress構築などやってます
+              <a
+                className="text-teal-500 no-underline hover:underline"
+                href="https://www.tailwindtoolbox.com"
+              >
+                <span className="inline-block">お仕事の依頼はこちら</span>
+              </a>
+            </p>
+          </div>
+          <div className="justify-end">
+            <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
+              <Link href="/profile">
+                <a>プロフィールを見る</a>
+              </Link>
+            </button>
+          </div>
+        </div>
+      </div>
+      <footer className="bg-white border-t border-gray-400 shadow">
+        <div className="container max-w-4xl mx-auto flex py-8">
+          <div className="w-full mx-auto flex flex-wrap">
+            <div className="flex w-full md:w-1/2 ">
+              <div className="px-8">
+                <h3 className="font-bold text-gray-900">About</h3>
+                <p className="py-4 text-gray-600 text-sm">
+                  たがわゆうすけが日々感じたことや学んだことをシェアするブログ
+                </p>
+              </div>
+            </div>
+            <div className="flex w-full md:w-1/2">
+              <div className="px-8">
+                <h3 className="font-bold text-gray-900">Social</h3>
+                <ul className="list-reset items-center text-sm pt-3">
+                  <li>
+                    <a
+                      className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
+                      href="#"
+                    >
+                      Twitterやってます
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -51,9 +141,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await ArticlePresenterInstance.fetchDetail(params.id);
+  const Content = postData.body;
   return {
     props: {
-      postData,
+      Content,
     },
   };
 };
