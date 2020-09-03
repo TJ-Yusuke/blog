@@ -8,7 +8,6 @@ import { Header } from '../../components/organisms/header';
 import Link from 'next/link';
 
 export const Post = ({ Content }) => {
-  console.log(Content);
   const router = useRouter();
   if (router.isFallback) {
     return <h1>Loading...ロード中です。</h1>;
