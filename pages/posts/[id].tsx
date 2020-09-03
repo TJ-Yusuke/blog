@@ -67,7 +67,7 @@ export const Post = ({ Content }) => {
               web開発やアプリ開発、wordpress構築などやってます
               <a
                 className="text-teal-500 no-underline hover:underline"
-                href="https://www.tailwindtoolbox.com"
+                href="/form"
               >
                 <span className="inline-block">お仕事の依頼はこちら</span>
               </a>
