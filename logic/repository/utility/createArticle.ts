@@ -1,5 +1,5 @@
-import { Article, Category } from '../../domain/entity/article';
-import { Body } from '../../domain/entity/types/body';
+import { Article, Category } from 'logic/domain/entity/article';
+import { Body } from 'logic/domain/entity/types/body';
 
 /**
  * ArticleEntityインスタンス作成

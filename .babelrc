@@ -4,6 +4,17 @@
     ["styled-components",
       {"ssr": true, "displayName": true, "preprocess": false}
     ],
-    ["macros"]
+    ["macros"],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./blog"
+        ],
+        "alias": {
+          "~": "./blog"
+        }
+      }
+    ]
   ]
 }

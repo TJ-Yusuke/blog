@@ -1,5 +1,5 @@
-import { Url } from './types/url';
-import { Body } from './types/body';
+import { Url } from 'logic/domain/entity/types/url';
+import { Body } from 'logic/domain/entity/types/body';
 
 export class Article {
   readonly id: string;

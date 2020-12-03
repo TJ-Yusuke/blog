@@ -1,15 +1,15 @@
 import ArticlePresenterInterface, {
   ArticlesViewModel,
   ArticleViewModel,
-} from '../interface/presenter/articlePresenterInterface';
-import { ArticleUseCaseInterface } from '../interface/useCase/articleUseCaseInterface';
+} from 'logic/interface/presenter/articlePresenterInterface';
+import { ArticleUseCaseInterface } from 'logic/interface/useCase/articleUseCaseInterface';
 import HttpStatusCode, {
   Response,
-} from '../interface/useCase/utility/response';
-import { Article } from '../domain/entity/article';
-import { getPlainText } from './utility/getPlainText';
-import { getDateString } from './utility/getDateString';
-import { getOmission } from './utility/getOmission';
+} from 'logic/interface/useCase/utility/response';
+import { Article } from 'logic/domain/entity/article';
+import { getPlainText } from 'logic/presenter/utility/getPlainText';
+import { getDateString } from 'logic/presenter/utility/getDateString';
+import { getOmission } from 'logic/presenter/utility/getOmission';
 
 export default class ArticlePresenter implements ArticlePresenterInterface {
   private readonly useCase: ArticleUseCaseInterface;

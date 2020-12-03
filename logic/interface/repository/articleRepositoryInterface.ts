@@ -1,6 +1,6 @@
-import { Response } from '../useCase/utility/response';
-import { Articles } from '../useCase/articleUseCaseInterface';
-import { Article } from '../../domain/entity/article';
+import { Response } from 'logic/interface/useCase/utility/response';
+import { Articles } from 'logic/interface/useCase/articleUseCaseInterface';
+import { Article } from 'logic/domain/entity/article';
 
 export interface ArticleRepositoryInterface {
   fetchArticles(): Promise<Response<Articles>>;
