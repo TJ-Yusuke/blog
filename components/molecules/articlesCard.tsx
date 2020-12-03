@@ -1,5 +1,5 @@
 import React from 'react';
-import { Url } from '../../logic/domain/entity/types/url';
+import { Url } from 'logic/domain/entity/types/url';
 
 type Props = {
   thumbnail: Url;

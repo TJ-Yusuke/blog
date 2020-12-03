@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import { ArticlePresenterInstance } from '../components/utility/instance/logic';
+import { ArticlePresenterInstance } from 'components/utility/instance/logic';
 import Link from 'next/link';
 
 const Index = ({ articlesJson }) => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ArticlePresenterInstance } from '../../components/utility/instance/logic';
+import { ArticlePresenterInstance } from 'components/utility/instance/logic';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import DefaultErrorPage from 'next/error';
-import { Header } from '../../components/organisms/header';
+import { Header } from 'components/organisms/header';
 import Link from 'next/link';
 
 export const Post = ({ Content }) => {
