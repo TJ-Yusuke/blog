@@ -1,5 +1,5 @@
-import { ArticleDriverInterface } from '../interface/driver/articleDriverInterface';
-import { axios } from './utility/axios';
+import { ArticleDriverInterface } from 'logic/interface/driver/articleDriverInterface';
+import { axios } from 'logic/driver/utility/axios';
 
 enum Endpoint {
   fetchDetail,

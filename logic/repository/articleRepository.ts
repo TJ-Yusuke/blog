@@ -1,9 +1,9 @@
-import { ArticleRepositoryInterface } from '../interface/repository/articleRepositoryInterface';
-import { ArticleDriverInterface } from '../interface/driver/articleDriverInterface';
-import { Articles } from '../interface/useCase/articleUseCaseInterface';
-import { Article } from '../domain/entity/article';
-import { createArticle } from './utility/createArticle';
-import { Response } from '../interface/useCase/utility/response';
+import { ArticleRepositoryInterface } from 'logic/interface/repository/articleRepositoryInterface';
+import { ArticleDriverInterface } from 'logic/interface/driver/articleDriverInterface';
+import { Articles } from 'logic/interface/useCase/articleUseCaseInterface';
+import { Article } from 'logic/domain/entity/article';
+import { createArticle } from 'logic/repository/utility/createArticle';
+import { Response } from 'logic/interface/useCase/utility/response';
 
 export default class ArticleRepository implements ArticleRepositoryInterface {
   readonly driver: ArticleDriverInterface;

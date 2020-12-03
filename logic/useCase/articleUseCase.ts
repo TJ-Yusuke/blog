@@ -1,12 +1,12 @@
 import HttpStatusCode, {
   Response,
-} from '../interface/useCase/utility/response';
+} from 'logic/interface/useCase/utility/response';
 import {
   Articles,
   ArticleUseCaseInterface,
-} from '../interface/useCase/articleUseCaseInterface';
-import { ArticleRepositoryInterface } from '../interface/repository/articleRepositoryInterface';
-import { Article } from '../domain/entity/article';
+} from 'logic/interface/useCase/articleUseCaseInterface';
+import { ArticleRepositoryInterface } from 'logic/interface/repository/articleRepositoryInterface';
+import { Article } from 'logic/domain/entity/article';
 
 export default class ArticleUseCase implements ArticleUseCaseInterface {
   readonly repository: ArticleRepositoryInterface;
