@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
+body > div > div > h1 {
     font-weight: bold;
     font-family: gothic, sans-serif;
     overflow-wrap: normal;
@@ -11,7 +11,7 @@ h1 {
     padding-bottom: .5rem;
     font-size: 1.875rem;
 }
-h2 {
+body > div > div > h2 {
     display: block;
     font-size: 1.5em;
     margin-block-start: 0.83em;
@@ -22,7 +22,7 @@ h2 {
     padding-left: 0.85rem;
     border-left: 0.25rem solid rgba(56, 178, 172, 1);
 }
-h3 {
+body > div > div > h3 {
     display: block;
     font-size: 1.25rem;
     margin-block-start: 1.33em;
@@ -31,7 +31,7 @@ h3 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-h4 {
+body > div > div > h4 {
     display: block;
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
@@ -39,11 +39,11 @@ h4 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-ul {
+body > div > div > ul {
     list-style-type: disc;
     padding-left: 25px;
 }
-ul ul {
+body > div > div > ul ul {
     list-style-type: circle;
     padding-left: 25px;
 }
@@ -66,7 +66,7 @@ pre {
     -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 768px) {
-    h1 {
+    body div div h1 {
         font-size: 2.25rem;
     }
 }

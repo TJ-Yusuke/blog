@@ -68,7 +68,7 @@ const Index = ({ articlesJson }) => {
         <title>ゆうすけオフィシャルブログ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-gray-200 font-sans leading-normal tracking-normal">
+      <div className="bg-gray-200 font-sans leading-normal tracking-normal overflow-hidden">
         <div
           className="w-full m-0 p-0 bg-cover bg-bottom"
           style={{
