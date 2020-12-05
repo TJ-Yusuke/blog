@@ -1,9 +1,9 @@
 //コンポーネント制作用
 import React from 'react';
-import { StickyFooter } from '../components/organisms/footer';
 import { ArticlesList } from '../components/molecules/articlesList';
 import { ArticlesCard } from '../components/molecules/articlesCard';
 import { HorizontalCard } from '../components/molecules/horizontalCard';
+import { ArchiveTableList } from '../components/molecules/archiveTableList';
 
 const Whiteboard: React.FC<any> = () => {
   return (
@@ -37,7 +37,14 @@ const Whiteboard: React.FC<any> = () => {
         title={'今日というひ'}
         date={'2020-8-3'}
       />
-      <StickyFooter />
+      <ul className="border-t w-full">
+        <ArchiveTableList
+          id={'adaf'}
+          date={'2016.01.01'}
+          category={'cat01'}
+          title={'テキストテキスト'}
+        />
+      </ul>
     </>
   );
 };
