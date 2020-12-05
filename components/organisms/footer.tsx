@@ -1,57 +1,35 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
-import { faTh } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faIdCard } from '@fortawesome/free-solid-svg-icons';
 
-export const StickyFooter: React.FC<{}> = () => {
+export const Footer: React.FC<{}> = () => {
   return (
-    <div className="bg-white absolute bottom-0 w-full border-t border-gray-200 flex">
-      <a
-        href="#"
-        className="flex flex-grow items-center justify-center p-2 text-indigo-500 hover:text-indigo-500"
-      >
-        <div className="text-center">
-          <span className="block h-8 text-3xl leading-8 mb-1">
-            <FontAwesomeIcon icon={faNewspaper} />
-          </span>
-          <span className="block text-xs leading-none">最新記事</span>
+    <footer className="bg-white border-t border-gray-400 shadow">
+      <div className="container max-w-4xl mx-auto flex py-8">
+        <div className="w-full mx-auto flex flex-wrap">
+          <div className="flex w-full md:w-1/2 ">
+            <div className="px-8">
+              <h3 className="font-bold text-gray-900">About</h3>
+              <p className="py-4 text-gray-600 text-sm">
+                たがわゆうすけが日々感じたことや学んだことをシェアするブログ
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full md:w-1/2">
+            <div className="px-8">
+              <h3 className="font-bold text-gray-900">Social</h3>
+              <ul className="list-reset items-center text-sm pt-3">
+                <li>
+                  <a
+                    className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
+                    href="#"
+                  >
+                    Twitterやってます
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </a>
-      <a
-        href="#"
-        className="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500"
-      >
-        <div className="text-center">
-          <span className="block h-8 text-3xl leading-8 mb-1">
-            <FontAwesomeIcon icon={faTh} />
-          </span>
-          <span className="block text-xs leading-none">カテゴリ</span>
-        </div>
-      </a>
-      <a
-        href="#"
-        className="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500"
-      >
-        <div className="text-center">
-          <span className="block h-8 text-3xl leading-8 mb-1">
-            <FontAwesomeIcon icon={faThumbsUp} />
-          </span>
-          <span className="block text-xs leading-none">おすすめ記事</span>
-        </div>
-      </a>
-      <a
-        href="#"
-        className="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500"
-      >
-        <div className="text-center">
-          <span className="block h-8 text-3xl leading-8 mb-1">
-            <FontAwesomeIcon icon={faIdCard} />
-          </span>
-          <span className="block text-xs leading-none">プロフィール</span>
-        </div>
-      </a>
-    </div>
+      </div>
+    </footer>
   );
 };
