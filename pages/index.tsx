@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { ArticlePresenterInstance } from 'components/utility/instance/logic';
 import Link from 'next/link';
+import { ArticleRequestType } from 'logic/interface/presenter/articlePresenterInterface';
 
 const Index = ({ articlesJson }) => {
   const articles = JSON.parse(articlesJson);
@@ -63,7 +64,7 @@ const Index = ({ articlesJson }) => {
     });
 
   return (
-    <div>
+    <>
       <Head>
         <title>ゆうすけオフィシャルブログ</title>
         <link rel="icon" href="/favicon.ico" />
@@ -252,16 +253,16 @@ const Index = ({ articlesJson }) => {
           </div>
         </footer>
       </div>
-    </div>
+    </>
   );
 };
 export default Index;
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await ArticlePresenterInstance.fetchArticles().catch(
-    (error) => {
-      throw error;
-    }
-  );
+  const articles = await ArticlePresenterInstance.fetchArticles(
+    ArticleRequestType.TOP
+  ).catch((error) => {
+    throw error;
+  });
   const articlesJson = JSON.stringify(articles.body.data);
   return {
     props: {
