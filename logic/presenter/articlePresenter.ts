@@ -1,4 +1,5 @@
 import ArticlePresenterInterface, {
+  ArticleRequestType,
   ArticlesViewModel,
   ArticleViewModel,
 } from 'logic/interface/presenter/articlePresenterInterface';
@@ -86,9 +87,11 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * 記事一覧取得
    * @return Promise<Response<Articles>>: 記事一覧取得結果
    */
-  async fetchArticles(): Promise<Response<ArticlesViewModel>> {
+  async fetchArticles(
+    requestType: ArticleRequestType
+  ): Promise<Response<ArticlesViewModel>> {
     return await this.useCase
-      .fetchArticles()
+      .fetchArticles(requestType)
       .then((response) => {
         if (response.statusCode == HttpStatusCode.OK) {
           return {

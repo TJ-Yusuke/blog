@@ -14,7 +14,14 @@ export type ArticlesViewModel = {
   data: ArticleViewModel[];
 };
 
+export enum ArticleRequestType {
+  TOP,
+  ARCHIVE,
+}
+
 export default interface ArticlePresenterInterface {
   fetchDetail(articleId: string): Promise<Response<ArticleViewModel>>;
-  fetchArticles(): Promise<Response<ArticlesViewModel>>;
+  fetchArticles(
+    requestType: ArticleRequestType
+  ): Promise<Response<ArticlesViewModel>>;
 }

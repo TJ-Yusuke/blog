@@ -4,6 +4,7 @@ import { Articles } from 'logic/interface/useCase/articleUseCaseInterface';
 import { Article } from 'logic/domain/entity/article';
 import { createArticle } from 'logic/repository/utility/createArticle';
 import { Response } from 'logic/interface/useCase/utility/response';
+import { ArticleRequestType } from '../interface/presenter/articlePresenterInterface';
 
 export default class ArticleRepository implements ArticleRepositoryInterface {
   readonly driver: ArticleDriverInterface;
@@ -16,9 +17,11 @@ export default class ArticleRepository implements ArticleRepositoryInterface {
    * 記事一覧取得
    * @return Promise<Response<Articles>>: 記事一覧データ
    */
-  async fetchArticles(): Promise<Response<Articles>> {
+  async fetchArticles(
+    requestType: ArticleRequestType
+  ): Promise<Response<Articles>> {
     return await this.driver
-      .fetchArticles()
+      .fetchArticles(requestType)
       .then((response) => {
         const data = response.data.contents.map((article) => {
           return createArticle(article);
