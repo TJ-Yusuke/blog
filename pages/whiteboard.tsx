@@ -43,6 +43,7 @@ const Whiteboard: React.FC<any> = () => {
           date={'2016.01.01'}
           category={'cat01'}
           title={'テキストテキスト'}
+          categoryColor={'bg-blue-400'}
         />
       </ul>
     </>

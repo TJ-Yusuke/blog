@@ -12,7 +12,8 @@ export const createArticle = (data: any): Article => {
   const category = new Category(
     data.category[0].id,
     data.category[0].categorySlug,
-    data.category[0].categoryName
+    data.category[0].categoryName,
+    data.category[0].categoryColor
   );
   const thumbnail = data.thumbnail ? data.thumbnail : null;
   const body: Body = data.body;

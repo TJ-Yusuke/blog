@@ -15,6 +15,7 @@ export const ArchiveTable: React.FC<Props> = ({ articles }: Props) => {
             id={article.id}
             date={article.updatedAt}
             category={article.category.name}
+            categoryColor={article.category.color}
             title={article.title}
           />
         );
