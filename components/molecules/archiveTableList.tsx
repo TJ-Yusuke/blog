@@ -5,6 +5,7 @@ type Props = {
   id: string;
   date: string;
   category: string;
+  categoryColor: string;
   title: string;
 };
 
@@ -12,6 +13,7 @@ export const ArchiveTableList: React.FC<Props> = ({
   id,
   date,
   category,
+  categoryColor,
   title,
 }: Props) => {
   return (
@@ -25,7 +27,9 @@ export const ArchiveTableList: React.FC<Props> = ({
             >
               {date}
             </time>
-            <p className="text-xs table-cell align-middle bg-green-400 rounded-sm text-white py-0.5 px-auto text-center w-32">
+            <p
+              className={`bg-green-400 bg-${categoryColor}-400 text-xs table-cell align-middle rounded-sm text-white py-0.5 px-auto text-center w-32`}
+            >
               {category}
             </p>
           </div>

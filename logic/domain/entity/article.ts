@@ -30,10 +30,12 @@ export class Category {
   readonly id: string;
   readonly slug: string;
   readonly name: string;
+  readonly color: string;
 
-  constructor(id: string, slug: string, name: string) {
+  constructor(id: string, slug: string, name: string, color: string) {
     this.id = id;
     this.slug = slug;
     this.name = name;
+    this.color = color;
   }
 }
