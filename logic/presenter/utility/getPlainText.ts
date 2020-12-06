@@ -8,7 +8,7 @@ export const getPlainText = (text: string): string => {
   text = text.replace(/<script([\s\S]*?)<\/script>/gi, '');
   text = text.replace(/<\/div>/gi, '\n');
   text = text.replace(/<\/li>/gi, '\n');
-  text = text.replace(/<li>/gi, '  *  ');
+  text = text.replace(/<li>/gi, '');
   text = text.replace(/<\/ul>/gi, '\n');
   text = text.replace(/<\/p>/gi, '\n');
   text = text.replace(/<br\s*[\/]?>/gi, '\n');

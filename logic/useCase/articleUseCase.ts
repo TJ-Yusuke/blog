@@ -7,6 +7,7 @@ import {
 } from 'logic/interface/useCase/articleUseCaseInterface';
 import { ArticleRepositoryInterface } from 'logic/interface/repository/articleRepositoryInterface';
 import { Article } from 'logic/domain/entity/article';
+import { ArticleRequestType } from '../interface/presenter/articlePresenterInterface';
 
 export default class ArticleUseCase implements ArticleUseCaseInterface {
   readonly repository: ArticleRepositoryInterface;
@@ -18,8 +19,10 @@ export default class ArticleUseCase implements ArticleUseCaseInterface {
   /**
    * 記事一覧取得
    */
-  async fetchArticles(): Promise<Response<Articles>> {
-    return await this.repository.fetchArticles().catch((error) => {
+  async fetchArticles(
+    requestType: ArticleRequestType
+  ): Promise<Response<Articles>> {
+    return await this.repository.fetchArticles(requestType).catch((error) => {
       return {
         statusCode: HttpStatusCode.FORBIDDEN,
         error: error.data,
