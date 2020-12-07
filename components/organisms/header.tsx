@@ -41,8 +41,8 @@ export const Header: React.FC<{}> = () => {
     </div>
   );
   return (
-    <header className="sticky top-0">
-      <nav id="header" className="fixed w-full z-10 top-0 bg-white">
+    <header className="absolute top-0">
+      <nav id="header" className="fixed w-full z-20 top-0 bg-white">
         <div
           id="progress"
           className="h-1 z-20 top-0"
