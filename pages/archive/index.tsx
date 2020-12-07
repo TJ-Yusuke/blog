@@ -9,13 +9,13 @@ import { ArchiveTable } from 'components/organisms/archiveTable';
 const Index = ({ articlesJson }) => {
   const articles = JSON.parse(articlesJson);
   return (
-    <body className="bg-gray-100 font-gothic leading-normal tracking-normal">
+    <div className="bg-gray-100 font-gothic leading-normal tracking-normal">
       <Header />
       <div className="mt-16 container mx-auto md:px-32">
         <ArchiveTable articles={articles} />
       </div>
       <Footer />
-    </body>
+    </div>
   );
 };
 export default Index;
