@@ -1,13 +1,17 @@
 import React from 'react';
-import { AppProps, Container } from 'next/app';
+import { AppProps } from 'next/app';
 import 'pages/tailwind.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Container>
+    <>
       <Component {...pageProps} />
       <style jsx global>{`
-        body > div > div > div > div > h1 {
+        p {
+          font-size: 1.05rem;
+          line-height: 1.5rem;
+        }
+        h1 {
           font-weight: bold;
           font-family: gothic, sans-serif;
           overflow-wrap: normal;
@@ -16,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
           padding-bottom: 0.5rem;
           font-size: 1.875rem;
         }
-        body > div > div > div > div > h2 {
+        h2 {
           display: block;
           font-size: 1.5em;
           margin-block-start: 0.83em;
@@ -27,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
           padding-left: 0.85rem;
           border-left: 0.25rem solid rgba(56, 178, 172, 1);
         }
-        body > div > div > div > div > h3 {
+        h3 {
           display: block;
           font-size: 1.25rem;
           margin-block-start: 1.33em;
@@ -36,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
           margin-inline-end: 0;
           font-weight: bold;
         }
-        body > div > div > div > div > h4 {
+        h4 {
           display: block;
           margin-block-start: 1.33em;
           margin-block-end: 1.33em;
@@ -48,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
           list-style-type: disc;
           padding-left: 25px;
         }
-        body > div > div > div > div > ul ul {
+        ul ul {
           list-style-type: circle;
           padding-left: 25px;
         }
@@ -72,11 +76,20 @@ export default function App({ Component, pageProps }: AppProps) {
           -webkit-overflow-scrolling: touch;
         }
         @media (min-width: 768px) {
-          body > div > div > div > div > h1 {
+          h1 {
             font-size: 2.25rem;
+          }
+          h2 {
+            font-size: 1.5em;
+          }
+          h3 {
+            font-size: 1.25rem;
+          }
+          h4 {
+            font-size: 1.15rem;
           }
         }
       `}</style>
-    </Container>
+    </>
   );
 }
