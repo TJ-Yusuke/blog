@@ -6,7 +6,7 @@ class CustomDocument extends Document {
       <Html lang="ja-JP">
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#7ed321" />
+          <meta name="theme-color" content="#68d391" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
