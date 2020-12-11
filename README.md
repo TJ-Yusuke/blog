@@ -1,20 +1,13 @@
-# blog by TJ-Yusuke
-#### microCMS + Next.jsで爆速ブログを作る
+# microCMS + Next.jsでブログを作る
 
 仕事でNext.jsで開発をする機会があり、せっかくなので今後のアウトプットもかねて0から作るところからブログを初めてみます
-ロジックはTypeScriptを使います<br>
-現在はフロントエンジニア兼大学生です。<br>
-バックエンドはわからないのでとりあえず今回はバックエンドはheadlessCMSに任せちゃいたいと思います。今後バックエンドも勉強して行けたらなと考えてます。
+<br>
+バックエンドはわからないのでとりあえず今回はバックエンドはheadlessCMSに任せたいと思います。今後バックエンドも勉強して行けたらなと考えてます。
 
 ## 大まかな構成
 - バックはHeadlessCMS(microCMS)
 - Next.js v9.5.1
-- ロジック部分→TypeScript
-#### アーキテクチャ
-アーキテクチャはデータをとってきて表示させるだけなのでなんでもいいが、今回は最近勉強したCleanArchitectureを導入してみようと思う。
-
-Jestによるテストも練習がてらやってみる
-
+- ロジック部分 : TypeScript
 
 ## 環境構築
 まずは環境開発からマニュアルでやっても良かったのですが、手間もコストもかかるので [公式リファレンス](https://nextjs.org/docs/getting-started) を参照しながらcreateしました
@@ -31,30 +24,22 @@ touch tsconfig.json
 ~~~
 yarn add --dev typescript @types/react @types/node
 ~~~
-その後、サーバーを起動
 
-### eslint, prettierなど導入
-いろいろやって[typescriptの整形](https://qiita.com/y-w/items/dcf5fb4af52e990109eb#typescript%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEeslint%E3%81%A8prettier%E3%81%AE%E4%BD%B5%E7%94%A8%E8%A8%AD%E5%AE%9A) ができる様にした。(省略)
+ +α tailwindとstyled-components導入など
 
-### tailwindとstyled-components導入
-これもいろいろググって導入しました。
-
-## logic周り
-勉強仕立てのcleanArchitectureを導入してみたのですが、間違いがあるかもしれないのであまり参考にはしない方がいいです。
-それでも見たい方はソースコードをご覧ください。
-<br>流れは, domain層があり、<br>
-CMS(データベース)→driver→repository→useCase→presenter→Viewはき出し
+## アーキテクチャ
+CMSとしてmicroCMSを採用、フロントとAPIを介してデータをやりとりします。
 
 ## view周り
 microCMSのリッチエディタで入力した物はHTMLの文字列で返ってきてしまうので、<br>
 
 `<div dangerouslySetInnerHTML={{ __html: hogehogehogehoge }}`<br>
 
-に無理やり突っ込んでDOMを作成した。※この方法は非推奨であまりやりたくなかったのですが、これ以外の方法が見当たらなかったので泣く泣くこれにしました。他に知っている方法があれば教えてください。（涙）
+に無理やり突っ込んでDOMを作成した。
+<br>※この方法は非推奨であまりやりたくなかったのですが、これ以外の方法が見当たらなかったのでこれにしました。他に知っている方法があれば教えてください
 
 
 ## View部分の設計
-アトミックデザインを取り入れたコンポーネント設計にしました。
 ```
 blog/
 ┣ components/
