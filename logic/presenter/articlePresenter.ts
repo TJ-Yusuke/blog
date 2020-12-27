@@ -90,10 +90,11 @@ export default class ArticlePresenter implements ArticlePresenterInterface {
    * @return Promise<Response<Articles>>: 記事一覧取得結果
    */
   async fetchArticles(
-    requestType: ArticleRequestType
+    requestType: ArticleRequestType,
+    pagination?: number
   ): Promise<Response<ArticlesViewModel>> {
     return await this.useCase
-      .fetchArticles(requestType)
+      .fetchArticles(requestType, pagination)
       .then((response) => {
         if (response.statusCode == HttpStatusCode.OK) {
           return {

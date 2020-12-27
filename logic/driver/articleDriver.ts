@@ -10,14 +10,26 @@ enum Endpoint {
   categories,
 }
 
+/**
+ * 記事取得件数
+ */
+export const limitFetchCount: number = 10;
+
 export default class ArticleDriver implements ArticleDriverInterface {
   /**
    * エンドポイント取得
    * @param endpoint: エンドポイント名
    * @param id: クエリ
+   * @param limit: 取得件数
+   * @param offset: 取得開始部分
    * @return string: エンドポイントurl
    */
-  static getEndpoint(endpoint: Endpoint, id?: string): string {
+  static getEndpoint(
+    endpoint: Endpoint,
+    id?: string,
+    limit?: number,
+    offset?: number
+  ): string {
     let url: string = '';
     switch (endpoint) {
       case Endpoint.fetchDetail:
@@ -27,7 +39,7 @@ export default class ArticleDriver implements ArticleDriverInterface {
         url = '/articles?limit=8';
         break;
       case Endpoint.fetchArchive:
-        url = '/articles?limit=100&offset=0';
+        url = `/articles?limit=${limit}&offset=${offset}`;
         break;
       case Endpoint.category:
         url = `/categories/${id}`;
@@ -52,11 +64,17 @@ export default class ArticleDriver implements ArticleDriverInterface {
 
   /**
    * 記事一覧取得
-   * デフォルトで10件取得
+   * top: デフォルトで10件取得
+   * archive: 100件ずつページネーション
    * @return Promise<any>: 記事一覧取得結果
    */
-  async fetchArticles(requestType: ArticleRequestType): Promise<any> {
+  async fetchArticles(
+    requestType: ArticleRequestType,
+    pagination?: number
+  ): Promise<any> {
     let type: Endpoint = null;
+
+    const offsetCount: number = (pagination - 1) * limitFetchCount;
     switch (requestType) {
       case ArticleRequestType.TOP:
         type = Endpoint.fetchArticles;
@@ -65,6 +83,8 @@ export default class ArticleDriver implements ArticleDriverInterface {
         type = Endpoint.fetchArchive;
         break;
     }
-    return await axios.get(ArticleDriver.getEndpoint(type));
+    return await axios.get(
+      ArticleDriver.getEndpoint(type, null, limitFetchCount, offsetCount)
+    );
   }
 }
