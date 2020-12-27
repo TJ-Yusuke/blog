@@ -13,17 +13,20 @@ const Index = ({ data }) => {
     <div className="bg-gray-100 font-gothic leading-normal tracking-normal">
       <Header />
       <section className="pt-20 container mx-auto md:px-32 text-center">
-        <Image
-          src="/profile.jpg"
-          width={200}
-          height={200}
-          quality={50}
-          alt="profile"
-          className="rounded-full max-w-full box-border z-auto"
-        />
+        <div className="mr-2">
+          <Image
+            src="/profile.jpg"
+            width={70}
+            height={70}
+            quality={50}
+            objectFit={'cover'}
+            alt="profile"
+            className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
+          />
+        </div>
         <h1 className="text-center font-bold text-2xl">たがわゆうすけ</h1>
       </section>
-      <section className="container w-80 mx-auto px-3 md:px-32">
+      <section className="container w-80 mx-auto my-12 px-3 md:px-32">
         <div dangerouslySetInnerHTML={{ __html: data }} />
       </section>
       <Footer />

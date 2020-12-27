@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next';
 import { ArticlePresenterInstance } from 'components/utility/instance/logic';
 import Link from 'next/link';
 import { ArticleRequestType } from 'logic/interface/presenter/articlePresenterInterface';
+import Image from 'next/image';
 
 const Index = ({ articlesJson }) => {
   const articles = JSON.parse(articlesJson);
@@ -174,31 +175,39 @@ const Index = ({ articlesJson }) => {
               </div>
             </div>
             <div className="flex w-full items-center font-sans py-8 md:p-24">
-              <img
-                className="w-10 h-10 rounded-full mr-4"
-                src="http://i.pravatar.cc/300"
-                alt="たがわゆうすけ"
-              />
-              <div className="flex-1 md:pr-2">
-                <p className="text-base font-bold text-base md:text-xl leading-none">
-                  たがわ ゆうすけ
-                </p>
-                <p className="text-gray-600 text-xs md:text-base">
-                  web開発やアプリ開発、wordpress構築などやってます{'  '}
-                  <a
-                    className="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
-                    href="https://www.tailwindtoolbox.com"
-                  >
-                    お仕事のご依頼はこちら
-                  </a>
-                </p>
+              <div className="mr-2">
+                <Image
+                  src="/profile.jpg"
+                  width={70}
+                  height={70}
+                  quality={50}
+                  objectFit={'cover'}
+                  alt="profile"
+                  className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
+                />
               </div>
-              <div className="justify-end">
-                <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
-                  <Link href="/profile">
-                    <a>プロフィールを見る</a>
-                  </Link>
-                </button>
+              <div className="sm:flex">
+                <div className="flex-1 md:pr-2">
+                  <p className="text-base font-bold text-base md:text-xl leading-none">
+                    たがわ ゆうすけ
+                  </p>
+                  <p className="text-gray-600 text-xs md:text-base">
+                    web開発やアプリ開発、wordpress構築などやってます{'  '}
+                    <a
+                      className="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+                      href="https://www.tailwindtoolbox.com"
+                    >
+                      お仕事のご依頼はこちら
+                    </a>
+                  </p>
+                </div>
+                <div className="justify-end">
+                  <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
+                    <Link href="/profile">
+                      <a>プロフィールを見る</a>
+                    </Link>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

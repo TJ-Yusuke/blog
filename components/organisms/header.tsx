@@ -87,7 +87,7 @@ export const Header: React.FC<{}> = () => {
             <ul className="list-reset lg:flex justify-end flex-1 items-center">
               <li className="mr-3">
                 <Link href="/">
-                  <a className="inline-block py-2 px-4 text-gray-900 font-bold no-underline">
+                  <a className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4">
                     TOP
                   </a>
                 </Link>
