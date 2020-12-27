@@ -28,7 +28,7 @@ export const Post = ({ Content }) => {
   return (
     <>
       <Head>
-        <title>{Content.title} : ゆうすけオフィシャルブログ</title>
+        <title>{Content.title} | ゆうすけオフィシャルブログ</title>
       </Head>
       <div className="bg-gray-100 font-gothic leading-normal tracking-normal">
         <Header />
