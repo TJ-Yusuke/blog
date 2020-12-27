@@ -20,14 +20,17 @@ export default class ArticleUseCase implements ArticleUseCaseInterface {
    * 記事一覧取得
    */
   async fetchArticles(
-    requestType: ArticleRequestType
+    requestType: ArticleRequestType,
+    pagination?: number
   ): Promise<Response<Articles>> {
-    return await this.repository.fetchArticles(requestType).catch((error) => {
-      return {
-        statusCode: HttpStatusCode.FORBIDDEN,
-        error: error.data,
-      };
-    });
+    return await this.repository
+      .fetchArticles(requestType, pagination)
+      .catch((error) => {
+        return {
+          statusCode: HttpStatusCode.FORBIDDEN,
+          error: error.data,
+        };
+      });
   }
 
   /**

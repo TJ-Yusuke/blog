@@ -8,6 +8,7 @@ import { Header } from 'components/organisms/header';
 import Link from 'next/link';
 import { ArticleRequestType } from 'logic/interface/presenter/articlePresenterInterface';
 import { Footer } from 'components/organisms/footer';
+import Image from 'next/image';
 
 export const Post = ({ Content }) => {
   const router = useRouter();
@@ -27,7 +28,7 @@ export const Post = ({ Content }) => {
   return (
     <>
       <Head>
-        <title>{Content.title} : ゆうすけオフィシャルブログ</title>
+        <title>{Content.title} | ゆうすけオフィシャルブログ</title>
       </Head>
       <div className="bg-gray-100 font-gothic leading-normal tracking-normal">
         <Header />
@@ -57,33 +58,41 @@ export const Post = ({ Content }) => {
             dangerouslySetInnerHTML={{ __html: Content.body }}
           />
           <div className="flex w-full items-center font-gothic px-4 py-12">
-            <img
-              className="w-10 h-10 rounded-full mr-4"
-              src="http://i.pravatar.cc/300"
-              alt="Avatar of Author"
-            />
-            <div className="flex-1 px-2">
-              <p className="md:text-xl text-sm font-bold leading-none mb-2">
-                <span className="inline-block">たがわ</span>
-                <span> </span>
-                <span className="inline-block">ゆうすけ</span>
-              </p>
-              <p className="text-gray-600 text-xs md:text-base">
-                web開発やアプリ開発、wordpress構築などやってます
-                <a
-                  className="text-teal-500 no-underline hover:underline"
-                  href="/form"
-                >
-                  <span className="inline-block">お仕事の依頼はこちら</span>
-                </a>
-              </p>
+            <div className="mr-2">
+              <Image
+                src="/profile.jpg"
+                width={70}
+                height={70}
+                quality={50}
+                objectFit={'cover'}
+                alt="profile"
+                className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
+              />
             </div>
-            <div className="justify-end">
-              <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
-                <Link href="/profile">
-                  <a>プロフィールを見る</a>
-                </Link>
-              </button>
+            <div className="lg:flex lg:items-center">
+              <div className="flex-1 px-2">
+                <p className="md:text-xl text-sm font-bold leading-none mb-2">
+                  <span className="inline-block">たがわ</span>
+                  <span> </span>
+                  <span className="inline-block">ゆうすけ</span>
+                </p>
+                <p className="text-gray-600 text-xs md:text-base">
+                  web開発やアプリ開発などやってます
+                  <a
+                    className="text-teal-500 no-underline hover:underline"
+                    href="/form"
+                  >
+                    <span className="inline-block">お仕事の依頼はこちら</span>
+                  </a>
+                </p>
+              </div>
+              <div className="sp:pl-6 sp:grid sp:justify-items-center">
+                <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full lg:ml-2">
+                  <Link href="/profile">
+                    <a>プロフィールを見る</a>
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
         </div>

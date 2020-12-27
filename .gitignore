@@ -36,4 +36,5 @@ yarn-error.log*
 .env
 
 /public/sw.js
-/public/workbox-8778d57b.js
+
+/public/workbox-*.js
