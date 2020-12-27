@@ -16,8 +16,8 @@ const Index = ({ data }) => {
         <div className="mr-2">
           <Image
             src="/profile.jpg"
-            width={70}
-            height={70}
+            width={180}
+            height={180}
             quality={50}
             objectFit={'cover'}
             alt="profile"

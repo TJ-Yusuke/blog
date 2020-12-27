@@ -30,9 +30,7 @@ const Index = ({ articlesJson }) => {
                 <div className="flex flex-wrap no-underline hover:no-underline">
                   <img
                     src={
-                      article.thumbnail
-                        ? article.thumbnail.url
-                        : 'https://source.unsplash.com/collection/225/800x600'
+                      article.thumbnail ? article.thumbnail.url : '/profile.jpg'
                     }
                     className={`${
                       i == 0 || i == 1 || i == 2 ? 'h-64' : 'h-full'
@@ -139,7 +137,7 @@ const Index = ({ articlesJson }) => {
                         src={
                           mainArticle.thumbnail
                             ? mainArticle.thumbnail.url
-                            : 'https://source.unsplash.com/collection/494263/800x600'
+                            : '/profile.jpg'
                         }
                         className="h-full w-full shadow object-cover"
                         alt={mainArticle.title}
