@@ -18,10 +18,11 @@ export default class ArticleRepository implements ArticleRepositoryInterface {
    * @return Promise<Response<Articles>>: 記事一覧データ
    */
   async fetchArticles(
-    requestType: ArticleRequestType
+    requestType: ArticleRequestType,
+    pagination?: number
   ): Promise<Response<Articles>> {
     return await this.driver
-      .fetchArticles(requestType)
+      .fetchArticles(requestType, pagination)
       .then((response) => {
         const data = response.data.contents.map((article) => {
           return createArticle(article);

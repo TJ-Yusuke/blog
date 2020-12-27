@@ -22,6 +22,7 @@ export enum ArticleRequestType {
 export default interface ArticlePresenterInterface {
   fetchDetail(articleId: string): Promise<Response<ArticleViewModel>>;
   fetchArticles(
-    requestType: ArticleRequestType
+    requestType: ArticleRequestType,
+    pagination?: number
   ): Promise<Response<ArticlesViewModel>>;
 }
