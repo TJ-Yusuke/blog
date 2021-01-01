@@ -12,7 +12,7 @@ const Index = ({ data }) => {
   return (
     <div className="bg-gray-100 font-gothic leading-normal tracking-normal">
       <Header />
-      <section className="pt-20 container mx-auto md:px-32 text-center">
+      <section className="sm:mt-12 pt-20 container mx-auto md:px-32 text-center">
         <div className="mr-2">
           <Image
             src="/profile.jpg"
@@ -24,9 +24,9 @@ const Index = ({ data }) => {
             className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
           />
         </div>
-        <h1 className="text-center font-bold text-2xl">たがわゆうすけ</h1>
+        <h1 className="text-center font-bold text-2xl mt-4">たがわゆうすけ</h1>
       </section>
-      <section className="container w-80 mx-auto my-12 px-3 md:px-32">
+      <section className="container w-80 mx-auto mt-8 mb-12 px-3 md:px-32">
         <div dangerouslySetInnerHTML={{ __html: data }} />
       </section>
       <Footer />

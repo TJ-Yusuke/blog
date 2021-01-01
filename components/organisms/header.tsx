@@ -55,8 +55,9 @@ export const Header: React.FC<{}> = () => {
         <div className="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
           <div className="pl-4">
             <Link href="/">
-              <a className="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
-                ゆうすけオフィシャルブログ
+              <a className="flex flex-wrap text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl">
+                <span className="block">ゆうすけ</span>
+                <span className="block">オフィシャルブログ</span>
               </a>
             </Link>
           </div>
