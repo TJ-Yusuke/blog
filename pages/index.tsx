@@ -30,7 +30,7 @@ const Index = ({ articlesJson }) => {
                 <div className="flex flex-wrap no-underline hover:no-underline">
                   <img
                     src={
-                      article.thumbnail ? article.thumbnail.url : '/profile.jpg'
+                      article.thumbnail ? article.thumbnail.url : '/noimage.png'
                     }
                     className={`${
                       i == 0 || i == 1 || i == 2 ? 'h-64' : 'h-full'
@@ -137,7 +137,7 @@ const Index = ({ articlesJson }) => {
                         src={
                           mainArticle.thumbnail
                             ? mainArticle.thumbnail.url
-                            : '/profile.jpg'
+                            : '/noimage.png'
                         }
                         className="h-full w-full shadow object-cover"
                         alt={mainArticle.title}
