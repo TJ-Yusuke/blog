@@ -78,12 +78,16 @@ export const Post = ({ Content }) => {
                 </p>
                 <p className="text-gray-600 text-xs md:text-base">
                   web開発やアプリ開発などやってます
-                  <a
-                    className="text-teal-500 no-underline hover:underline"
-                    href="/form"
-                  >
-                    <span className="inline-block">お仕事の依頼はこちら</span>
-                  </a>
+                  <span className="block">
+                    お仕事の依頼は
+                    <a
+                      className="text-teal-500 no-underline hover:underline"
+                      href="/form"
+                    >
+                      <span className="inline-block">twitterのDM</span>
+                    </a>
+                    でお待ちしています。
+                  </span>
                 </p>
               </div>
               <div className="sp:pl-6 sp:grid sp:justify-items-center">

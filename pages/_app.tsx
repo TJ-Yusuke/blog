@@ -75,6 +75,9 @@ export default function App({ Component, pageProps }: AppProps) {
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
         }
+        a {
+          color: rgba(56, 178, 172, 1);
+        }
         @media (min-width: 768px) {
           h1 {
             font-size: 2.25rem;

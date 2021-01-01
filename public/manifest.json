@@ -5,8 +5,8 @@
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
-    "app_name": "blog",
-    "short_name": "blog",
+    "app_name": "Yusuke official blog",
+    "short_name": "Yusuke",
     "description": "my daily blog",
     "icons": [
         {
