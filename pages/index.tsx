@@ -172,34 +172,39 @@ const Index = ({ articlesJson }) => {
                 <SubArticle />
               </div>
             </div>
-            <div className="flex w-full items-center font-sans py-8 md:p-24">
-              <div className="mr-2">
-                <Image
-                  src="/profile.jpg"
-                  width={70}
-                  height={70}
-                  quality={50}
-                  objectFit={'cover'}
-                  alt="profile"
-                  className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
-                />
-              </div>
-              <div className="sm:flex">
+            <div className="flex flex-wrap w-full items-center justify-center font-sans py-8 md:p-24">
+              <Image
+                src="/profile.jpg"
+                width={70}
+                height={70}
+                quality={50}
+                objectFit={'cover'}
+                alt="profile"
+                className="rounded-full max-w-full box-border z-auto object-cover w-4 h-4"
+              />
+              <div className="sm:flex pl-2 mt-4 sm:mt-0">
                 <div className="flex-1 md:pr-2">
-                  <p className="text-base font-bold text-base md:text-xl leading-none">
+                  <p className="text-base font-bold text-base md:text-xl leading-none text-center sm:text-left mb-3 sm:mb-0">
                     たがわ ゆうすけ
                   </p>
-                  <p className="text-gray-600 text-xs md:text-base">
-                    web開発やアプリ開発、wordpress構築などやってます{'  '}
-                    <a
-                      className="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
-                      href="https://www.tailwindtoolbox.com"
-                    >
-                      お仕事のご依頼はこちら
-                    </a>
+                  <p className="text-gray-600 text-xs lg:text-base">
+                    web開発やアプリ開発、wordpress構築などやってます。
+                    <span className="block">
+                      お仕事のご依頼は
+                      <Link href="https://twitter.com/Raitoning0921?ref_src=twsrc%5Etfw">
+                        <a
+                          className="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          twitterのDM
+                        </a>
+                      </Link>
+                      でお待ちしております。
+                    </span>
                   </p>
                 </div>
-                <div className="justify-end">
+                <div className="flex items-center mt-3 sm:mt-0 justify-center sm:justify-start">
                   <button className="bg-transparent border border-gray-500 hover:border-teal-500 text-xs text-gray-500 hover:text-teal-500 font-bold py-2 px-4 rounded-full">
                     <Link href="/profile">
                       <a>プロフィールを見る</a>
