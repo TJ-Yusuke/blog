@@ -53,6 +53,13 @@ export const Post = ({ Content }) => {
               最終更新日: {Content.updatedAt}
             </p>
           </div>
+          {Content.thumbnail && (
+            <img
+              src={Content.thumbnail.url}
+              alt={Content.title}
+              className="my-4"
+            />
+          )}
           <div
             className="py-6 px-4 md:px-6"
             dangerouslySetInnerHTML={{ __html: Content.body }}
