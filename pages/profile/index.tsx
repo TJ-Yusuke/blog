@@ -26,7 +26,7 @@ const Index = ({ data }) => {
         </div>
         <h1 className="text-center font-bold text-2xl mt-4">たがわゆうすけ</h1>
       </section>
-      <section className="container w-80 mx-auto mt-8 mb-12 px-3 md:px-32">
+      <section className="container w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto mt-8 mb-12 px-3 md:px-32">
         <div dangerouslySetInnerHTML={{ __html: data }} />
       </section>
       <Footer />
