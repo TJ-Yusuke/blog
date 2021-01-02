@@ -17,7 +17,6 @@ const Index = ({ articlesJson }) => {
     JSON.parse(articlesJson)
   );
   const [isLoadVisible, setIsLoadVisible] = useState<boolean>(true);
-  const articles = JSON.parse(articlesJson);
 
   useEffect(() => {
     if (paginationCount > 1) {
